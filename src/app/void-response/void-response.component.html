@@ -1,0 +1,16 @@
+<div *ngIf="response.content">
+  <h2>The Void Responds:</h2>
+  <hr>
+  <div class=vert-space></div>
+    <p id="response-text">"{{response.content}}"</p>
+</div>
+
+<div *ngIf="response.error">
+  <h2>Your Message Was Lost:</h2>
+  <hr>
+  <div class=vert-space></div>
+  <p id="response-error">{{response.error}}</p>
+</div>
+
+<div class=vert-space></div>
+<button (click)="goAgain()">Speak Once More</button>

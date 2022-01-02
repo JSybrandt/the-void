@@ -1,0 +1,24 @@
+<div *ngIf="!response">
+
+  <h2>Speak to The Void</h2>
+  <div>
+    <textarea
+      id="message-box"
+      [(ngModel)]="message"
+      (keydown.enter)="preventKeydown($event)"
+      (keyup.enter)="submit(message)"
+      ></textarea>
+    <p id=length-counter [attr.error]="message.length > max_length">
+      {{message.length}}/{{max_length}}</p>
+  </div>
+  <div class=vert-space></div>
+  <button
+    (click)="submit(message)"
+    [disabled]="!isValid()">
+    Speaketh
+  </button>
+</div>
+
+<div *ngIf="response">
+  <app-void-response [response]="response" (isDone)="onResponseDone()"></app-void-response>
+</div>

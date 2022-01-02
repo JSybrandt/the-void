@@ -1,0 +1,14 @@
+@import "../../assets/_common.scss";
+textarea {
+  width: 100%;
+  height: 50px;
+  @include typical-text($black, 20px);
+  padding: 10px;
+}
+#length-counter{
+  text-align: right;
+  @include typical-text($grey, 15px);
+  &[error=true] {
+    @include typical-text($red, 15px);
+  }
+}

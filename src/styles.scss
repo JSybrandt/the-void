@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/_common.scss";
+
+body {
+  background: $black none no-repeat scroll 0 0;
+
+  #main-content {
+    max-width: 800px;
+    margin:auto;
+
+    h1 {@include title-text(60px)}
+    h2 {@include title-text(30px)}
+    p {@include typical-text($white)}
+    input {@include typical-text($black)}
+    label {@include typical-text($white)}
+
+    .vert-space {
+      height: 40px;
+    }
+
+    button {
+      @include center;
+      padding: 0;
+      border: none;
+      background: none;
+      @include typical-text($white, 30px);
+      text-decoration: underline;
+
+      &:hover {
+        color: $red;
+      }
+      &:active {
+        color: $red;
+      }
+      &:disabled {
+        color: $dark-grey;
+      }
+    }
+  }
+}

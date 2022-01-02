@@ -1,0 +1,12 @@
+@import "../../assets/_common.scss";
+#response-text {
+  @include center;
+  justify-content:center;
+  font-style: italic;
+  @include typical-text($gold, 30px);
+}
+#response-error{
+  @include center;
+  justify-content:center;
+  @include typical-text($red);
+}
