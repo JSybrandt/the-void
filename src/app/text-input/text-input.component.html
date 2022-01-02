@@ -17,6 +17,11 @@
     [disabled]="!isValid()">
     Speaketh
   </button>
+
+  <div *ngIf="waiting">
+    <h3>Awaiting a message...</h3>
+  </div>
+
 </div>
 
 <div *ngIf="response">

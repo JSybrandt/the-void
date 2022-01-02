@@ -9,6 +9,7 @@ body {
 
     h1 {@include title-text(60px)}
     h2 {@include title-text(30px)}
+    h3 {@include title-text(20px)}
     p {@include typical-text($white)}
     input {@include typical-text($black)}
     label {@include typical-text($white)}
@@ -37,3 +38,6 @@ body {
     }
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

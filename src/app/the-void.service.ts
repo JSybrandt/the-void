@@ -10,7 +10,7 @@ import { VoidMessage } from './void-message';
   providedIn: 'root'
 })
 export class TheVoidService {
-  private apiUrl = "http://localhost:5000/throw-in-the-void";
+  private apiUrl = "http://the-void-api.sybrandt.com/throw-in-the-void";
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -25,6 +25,12 @@ export class TheVoidService {
   }
 
   handleError(error: HttpErrorResponse): Observable<VoidMessage>{
-    return of(error.error);
+    if(error.status === 0){
+      return of({"error": "Failed to find The Void. Your message was lost."});
+    }
+    if("error" in error){
+      return of(error.error);
+    }
+    return of({"error": "The Void produced a malformed mistake. Your message was lost."});
   }
 }
