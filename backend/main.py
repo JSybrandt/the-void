@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 import database
 from better_profanity import profanity
+from pathlib import Path
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -38,6 +39,14 @@ def throw_in_the_void():
   return jsonify(content=response_content)
 
 
+def get_ssl_context():
+  fullchain_path=Path('/etc/letsencrypt/live/the-void-api.sybrandt.com/fullchain.pem')
+  privkey_path=Path('/etc/letsencrypt/live/the-void-api.sybrandt.com/privkey.pem')
+  if fullchain_path.is_file() and privkey_path.is_file():
+    return (str(fullchain_path), str(privkey_path))
+  print("WARNING: Failed to get ssl cert. Falling back to adhoc.")
+  return None
+
 
 if __name__ == "__main__":
-  app.run(threaded=True)
+  app.run(threaded=True, port=8080, host="0.0.0.0", ssl_context=get_ssl_context())

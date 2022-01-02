@@ -10,7 +10,7 @@ import { VoidMessage } from './void-message';
   providedIn: 'root'
 })
 export class TheVoidService {
-  private apiUrl = "http://the-void-api.sybrandt.com/throw-in-the-void";
+  private apiUrl = "https://the-void-api.sybrandt.com:8080/throw-in-the-void";
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
