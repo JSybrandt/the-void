@@ -1,0 +1,45 @@
+$white: rgb(255, 255, 255);
+$grey: rgb(70, 70, 70);
+$dark-grey: rgb(40,40,40);
+$black: rgb(15,15,15);
+$red: rgb(256, 0, 0);
+$gold: rgb(255,215,0);
+
+@mixin typical-text($color, $size: 20px) {
+  font-family: Georgia, serif;
+  font-size: $size;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  color: $color;
+  font-weight: 400;
+  text-decoration: none solid $color;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+@mixin title-text($size){
+  font-family: "Times New Roman", Times, serif;
+  font-size: $size;
+  letter-spacing: 2.4px;
+  word-spacing: 3.2px;
+  color: #B4B4B4;
+  font-weight: 700;
+  text-decoration: none solid $white;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  justify-content:center;
+  display:flex;
+  text-shadow: 12px 8px 6px $dark-grey;
+}
+
+@mixin center {
+  margin:auto;
+  display: flex;
+}
+
+@mixin cenetered-text-with-border {
+  @include cenetered-box;
+  border: 5px solid $white;
+}
