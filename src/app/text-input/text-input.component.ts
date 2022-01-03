@@ -35,7 +35,7 @@ export class TextInputComponent implements OnInit {
   }
 
   isValid(): boolean {
-    return this.message.length > 0 && this.message.length < this.max_length && !this.waiting;
+    return this.message.length > 0 && this.message.length <= this.max_length && !this.waiting;
   }
 
   preventKeydown(event:any){
