@@ -13,8 +13,8 @@ def validate_content(content):
   content = content.strip()
   if not content:
     raise ValueError("The Void expects actual messages, not just whitespace.")
-  if profanity.contains_profanity(content):
-    raise ValueError(f"The Void is an arbitrary prude, and does not appreciate your message:  \"{profanity.censor(content)}\"")
+  # if profanity.contains_profanity(content):
+    # raise ValueError(f"The Void is an arbitrary prude, and does not appreciate your message:  \"{profanity.censor(content)}\"")
   if len(content) > MAX_LENGTH:
     raise ValueError(f"The Void cannot echo messages longer than {MAX_LENGTH} characters")
   return content
